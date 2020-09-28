@@ -1,6 +1,6 @@
 #############################################################################################
 #Project
-setwd("F:\\R_PROJECTS\\Getting_and_Cleaning_Data_Week1\\data_proj\\UCI HAR Dataset\\New folder")
+setwd("F:\\R_PROJECTS\\Tidy Data")
 #Statement to check and load the tidyverse package if unloaded
 if("tidyverse" %in% installed.packages()){
        require(tidyverse)
@@ -16,10 +16,11 @@ if(!file.exists("data_proj")){
 #File Download
 download.file(
        "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",
-       destfile = "F:/R_PROJECTS/Getting_and_Cleaning_Data_Week1/data_proj/.dataset_zip",
+       destfile = "F:\\R_PROJECTS\\Tidy Data\\dataset.zip",
        method = "curl"
 )
 
+##Have converted the below fixed width files to .csv before importing into R
 #Test mesasurements
 test <- read.csv(
        "X_test.csv",
@@ -161,13 +162,20 @@ data.frame(
 )  %>% rename(
        mean_av = value
 ) %>% 
-       gather(
-              "Measurement",
-              "Average",
-              3:4
-       ) %>% arrange(
+       arrange(
               Subjects
        ) -> tidy_data
+
+
+
+
+#gather(
+#       "Measurement",
+#       "Average",
+#       3:4
+#) %>% arrange(
+#       Subjects
+#) -> tidy_data
 
 
 
