@@ -133,15 +133,15 @@ factor(
 #Tidying Data 
 gather(
        mean_std,
-       "measurement",
+       "Variable",
        "value",
        3:ncol(mean_std)
 ) -> mean_std_tidy 
 
 #Extracting measurements based on mean and std respectifully into two separate dataframes
 #measurements with mean
-mean_std_tidy[grepl("[Mm]ean",mean_std_tidy$measurement), ] -> mn
-mean_std_tidy[grepl("[Ss]td",mean_std_tidy$measurement), ] -> std_n
+mean_std_tidy[grepl("[Mm]ean",mean_std_tidy$Variable), ] -> mn
+mean_std_tidy[grepl("[Ss]td",mean_std_tidy$Variable), ] -> std_n
 
 #Aggregating and averaging measurements for each activity and each subject
 data.frame(
