@@ -22,17 +22,17 @@ download.file(
 
 ##Have converted the below fixed width files to .csv before importing into R
 #Test mesasurements
-test <- read.csv(
-       "X_test.csv",
+test <- read.table(
+       "X_test.txt", 
        header = F, 
-       sep = ","
+       sep = ""
 )
 
 #Train measurements
-train <- read.csv(
-       "X_train.csv",
+train <- read.table(
+       "X_train.txt",
        header = F,
-       sep = ","
+       sep = ""
 )
 
 #Subjects of train measurements
@@ -133,15 +133,15 @@ factor(
 #Tidying Data 
 gather(
        mean_std,
-       "Variable",
+       "measurement",
        "value",
        3:ncol(mean_std)
 ) -> mean_std_tidy 
 
 #Extracting measurements based on mean and std respectifully into two separate dataframes
 #measurements with mean
-mean_std_tidy[grepl("[Mm]ean",mean_std_tidy$Variable), ] -> mn
-mean_std_tidy[grepl("[Ss]td",mean_std_tidy$Variable), ] -> std_n
+mean_std_tidy[grepl("[Mm]ean",mean_std_tidy$measurement), ] -> mn
+mean_std_tidy[grepl("[Ss]td",mean_std_tidy$measurement), ] -> std_n
 
 #Aggregating and averaging measurements for each activity and each subject
 data.frame(
@@ -165,9 +165,6 @@ data.frame(
        arrange(
               Subjects
        ) -> tidy_data
-
-
-
 
 #gather(
 #       "Measurement",
