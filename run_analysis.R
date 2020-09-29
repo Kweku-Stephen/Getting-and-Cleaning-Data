@@ -20,7 +20,6 @@ download.file(
        method = "curl"
 )
 
-##Have converted the below fixed width files to .csv before importing into R
 #Test mesasurements
 test <- read.table(
        "X_test.txt", 
