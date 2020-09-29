@@ -19,7 +19,6 @@ Thirty (30) subjects volunteered to participate in an experiment which involves 
 6 LAYING
 
 
-
 ## Signals
 Using its embedded accelerometer and gyroscope, the samsung galaxy SII was used to captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz and the following **signals** were generated
 
@@ -132,7 +131,22 @@ To communicate more meaning, the numeric values of the **Activity** column must 
 
 Now we replace the numerics with characters 
 
-Since the estimated variables of interest are only mean and std, we subset only features or measurements with mean() and std()
+# Summary Choices
+Since the estimated variables of interest are only mean() and std(), we subset only features/measurements meeting this criteria. eg:
+
+ - tBodyAcc-mean()-X  
+ - tBodyAcc-mean()-Y  
+ - tBodyAcc-mean()-Z  
+ - tBodyAcc-std()-X  
+ - tBodyAcc-std()-Y  
+ - tBodyAcc-std()-Z  
+ - tGravityAcc-mean()-X  
+ - tGravityAcc-mean()-Y  
+ - tGravityAcc-mean()-Z  
+ - tGravityAcc-std()-X  
+ - tGravityAcc-std()-Z  
+ 
+And for each activity of a subject, the average of mean() inherent fearures/measurements where computed and so was it for std() inherent measurements
 
 
 ## Ordering
@@ -153,6 +167,19 @@ The average of the mean() measurements  as well as the average of the std() meas
 
 Resultant dataframes from immediate-above are merged ones again by row to achieve the data format which adheres to the so called "tidy data" philosophy and ordered afterwards using the subject variable or column to communicate more meaning and create ease for further analysis on the data.
 
+## Variables and Observations
+Within the Tidy data data from the above operation, each column contains a variable which are:
+
+ - Subjects  
+ - Activities  
+ - mean_av  
+ - std_av  
+ **subjects** *represents volunteered persons for the experiment*
+ **Activities** *representing activities of daily living (ADL) for each subject* 
+ **mean_av and std_av** *representing the average value of mean() and std() inherent measurements/features for each activity of each subject*
+ 
+ *Each row is an observation of all column variables for each subject, thus, the average value of mean() inherent measurements and std() inherent measurements of a specific type activity for each subject*
+ 
 
 
 # Data Dictionary
@@ -209,3 +236,13 @@ std_av - representing all std() inherent measurements for each activity         
 
 ## Average
 Average value of mean() or std() inherent measurements for each activity and for each subject 
+
+
+
+
+
+
+
+
+
+
