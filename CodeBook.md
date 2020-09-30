@@ -20,25 +20,25 @@ Thirty (30) subjects volunteered to participate in an experiment which involves 
 
 
 ## Signals
-Using its embedded accelerometer and gyroscope, the samsung galaxy SII was used to captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz and the following **signals** were generated
+Using its embedded accelerometer and gyroscope, the samsung galaxy SII was used to captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz and the the sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. Hence, the following **signals** were generated
 
-tBodyAcc-XYZ
-tGravityAcc-XYZ
-tBodyAccJerk-XYZ
-tBodyGyro-XYZ
-tBodyGyroJerk-XYZ
-tBodyAccMag
-tGravityAccMag
-tBodyAccJerkMag
-tBodyGyroMag
-tBodyGyroJerkMag
-fBodyAcc-XYZ
-fBodyAccJerk-XYZ
-fBodyGyro-XYZ
-fBodyAccMag
-fBodyAccJerkMag
-fBodyGyroMag
-fBodyGyroJerkMag
+ - tBodyAcc-XYZ  
+ - tGravityAcc-XYZ  
+ - tBodyAccJerk-XYZ  
+ - tBodyGyro-XYZ  
+ - tBodyGyroJerk-XYZ  
+ - tBodyAccMag  
+ - tGravityAccMag  
+ - tBodyAccJerkMag  
+ - tBodyGyroMag  
+ - tBodyGyroJerkMag  
+ - fBodyAcc-XYZ  
+ - fBodyAccJerk-XYZ  
+ - fBodyGyro-XYZ  
+ - fBodyAccMag  
+ - fBodyAccJerkMag  
+ - fBodyGyroMag  
+ - fBodyGyroJerkMag  
 
 
 ## Variables
@@ -65,59 +65,64 @@ angle(): Angle between to vectors.
 
 
 ## features
-For each **Signal**, **Variables** was generated. These are the features or measurements of each activity for each subject.
+For each **Signal**, **Variables** was generated. These are the features or measurements of each activity for each subject. The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
-*First 50 elements of features*
-1 tBodyAcc-mean()-X
-2 tBodyAcc-mean()-Y
-3 tBodyAcc-mean()-Z
-4 tBodyAcc-std()-X
-5 tBodyAcc-std()-Y
-6 tBodyAcc-std()-Z
-7 tBodyAcc-mad()-X
-8 tBodyAcc-mad()-Y
-9 tBodyAcc-mad()-Z
-10 tBodyAcc-max()-X
-11 tBodyAcc-max()-Y
-12 tBodyAcc-max()-Z
-13 tBodyAcc-min()-X
-14 tBodyAcc-min()-Y
-15 tBodyAcc-min()-Z
-16 tBodyAcc-sma()
-17 tBodyAcc-energy()-X
-18 tBodyAcc-energy()-Y
-19 tBodyAcc-energy()-Z
-20 tBodyAcc-iqr()-X
-21 tBodyAcc-iqr()-Y
-22 tBodyAcc-iqr()-Z
-23 tBodyAcc-entropy()-X
-24 tBodyAcc-entropy()-Y
-25 tBodyAcc-entropy()-Z
-26 tBodyAcc-arCoeff()-X,1
-27 tBodyAcc-arCoeff()-X,2
-28 tBodyAcc-arCoeff()-X,3
-29 tBodyAcc-arCoeff()-X,4
-30 tBodyAcc-arCoeff()-Y,1
-31 tBodyAcc-arCoeff()-Y,2
-32 tBodyAcc-arCoeff()-Y,3
-33 tBodyAcc-arCoeff()-Y,4
-34 tBodyAcc-arCoeff()-Z,1
-35 tBodyAcc-arCoeff()-Z,2
-36 tBodyAcc-arCoeff()-Z,3
-37 tBodyAcc-arCoeff()-Z,4
-38 tBodyAcc-correlation()-X,Y
-39 tBodyAcc-correlation()-X,Z
-40 tBodyAcc-correlation()-Y,Z
-41 tGravityAcc-mean()-X
-42 tGravityAcc-mean()-Y
-43 tGravityAcc-mean()-Z
-44 tGravityAcc-std()-X
-45 tGravityAcc-std()-Y
-46 tGravityAcc-std()-Z
-47 tGravityAcc-mad()-X
-48 tGravityAcc-mad()-Y
-49 tGravityAcc-mad()-Z
-50 tGravityAcc-max()
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
+
+
+*First 50 features of 561*
+ - tBodyAcc-mean()-X  
+ - tBodyAcc-mean()-Y  
+ - tBodyAcc-mean()-Z  
+ - tBodyAcc-std()-X  
+ - tBodyAcc-std()-Y  
+ - tBodyAcc-std()-Z  
+ - tBodyAcc-mad()-X  
+ - tBodyAcc-mad()-Y  
+ - tBodyAcc-mad()-Z  
+ - tBodyAcc-max()-X  
+ - tBodyAcc-max()-Y  
+ - tBodyAcc-max()-Z  
+ - tBodyAcc-min()-X  
+ - tBodyAcc-min()-Y  
+ - tBodyAcc-min()-Z  
+ - tBodyAcc-sma()  
+ - tBodyAcc-energy()-X  
+ - tBodyAcc-energy()-Y  
+ - tBodyAcc-energy()-Z  
+ - tBodyAcc-iqr()-X  
+ - tBodyAcc-iqr()-Y  
+ - tBodyAcc-iqr()-Z  
+ - tBodyAcc-entropy()-X  
+ - tBodyAcc-entropy()-Y  
+ - tBodyAcc-entropy()-Z  
+ - tBodyAcc-arCoeff()-X,1  
+ - tBodyAcc-arCoeff()-X,2  
+ - tBodyAcc-arCoeff()-X,3  
+ - tBodyAcc-arCoeff()-X,4  
+ - tBodyAcc-arCoeff()-Y,1  
+ - tBodyAcc-arCoeff()-Y,2  
+ - tBodyAcc-arCoeff()-Y,3  
+ - tBodyAcc-arCoeff()-Y,4  
+ - tBodyAcc-arCoeff()-Z,1  
+ - tBodyAcc-arCoeff()-Z,2  
+ - tBodyAcc-arCoeff()-Z,3  
+ - tBodyAcc-arCoeff()-Z,4  
+ - tBodyAcc-correlation()-X,Y  
+ - tBodyAcc-correlation()-X,Z  
+ - tBodyAcc-correlation()-Y,Z  
+ - tGravityAcc-mean()-X  
+ - tGravityAcc-mean()-Y  
+ - tGravityAcc-mean()-Z  
+ - tGravityAcc-std()-X  
+ - tGravityAcc-std()-Y  
+ - tGravityAcc-std()-Z  
+ - tGravityAcc-mad()-X  
+ - tGravityAcc-mad()-Y  
+ - tGravityAcc-mad()-Z  
+ - tGravityAcc-max()  
 
 
 ## Data from Experiment
