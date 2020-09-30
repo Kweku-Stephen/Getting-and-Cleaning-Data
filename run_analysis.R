@@ -165,6 +165,13 @@ data.frame(
               Subjects
        ) -> tidy_data
 
+write.table(
+       tidy_data,
+       file = "Tidy data.txt",
+       sep = "\t",
+       row.names = F
+)
+
 #gather(
 #       "Measurement",
 #       "Average",
