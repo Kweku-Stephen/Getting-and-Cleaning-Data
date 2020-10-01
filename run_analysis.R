@@ -1,4 +1,3 @@
-#############################################################################################
 #Project
 setwd("F:\\R_PROJECTS\\Tidy Data")
 #Statement to check and load the tidyverse package if unloaded
@@ -137,56 +136,18 @@ gather(
        3:ncol(mean_std)
 ) -> mean_std_tidy 
 
-#Extracting measurements based on mean and std respectifully into two separate dataframes
-#measurements with mean
-mean_std_tidy[grepl("[Mm]ean",mean_std_tidy$measurement), ] -> mn
-mean_std_tidy[grepl("[Ss]td",mean_std_tidy$measurement), ] -> std_n
-
 #Aggregating and averaging measurements for each activity and each subject
-data.frame(
-       aggregate(
-              value~Subjects+Activities,
-              mn,
-              mean,
-              na.rm=T
-       ),
-       
-       std_av = aggregate(
-              value~Subjects+Activities,
-              std_n,
-              mean,
-              na.rm=T
-       )[,3]
-       
-)  %>% rename(
-       mean_av = value
-) %>% 
-       arrange(
-              Subjects
-       ) -> tidy_data
+aggregate(
+       value~measurement+Activities+Subjects,
+       mean_std_tidy,
+       mean,
+       na.rm=T
+) -> Tidy.data
 
+#Writing to disk
 write.table(
-       tidy_data,
-       file = "Tidy data.txt",
+       Tidy.data,
+       file = "Tidy.data.txt",
        sep = "\t",
-       row.names = F
+       row.names = FALSE
 )
-
-#gather(
-#       "Measurement",
-#       "Average",
-#       3:4
-#) %>% arrange(
-#       Subjects
-#) -> tidy_data
-
-
-
-
-
-
-
-
-
-
-
