@@ -161,29 +161,22 @@ The data is then ordered by the subjects variable in a descending order of magni
 The data was structured such that each variable is in its own column and each observation in a row to conform to the "so called tidy data" philosophy introduced by Hadley Wickham. 
 
 
-The dataset was then divided into groups, thus into separate dataframes based on the unique variable amongst the measurements which are:
+The dataset was then *aggregated or grouped* using the measurement/feature column and the average of each measurement/feature for every activity of each subject was computed.
 
- - mean()  
- - std()
-
-
-## Grouped analysis 
-The average of the mean() measurements  as well as the average of the std() measurements for every activity of each subject in the immediate-above dataframes is then computed.
-
-Resultant dataframes from immediate-above are merged ones again by row to achieve the data format which adheres to the so called "tidy data" philosophy and ordered afterwards using the subject variable or column to communicate more meaning and create ease for further analysis on the data.
 
 ## Variables and Observations
 Within the Tidy data data from the above operation, each column contains a variable which are:
 
  - Subjects  
  - Activities  
- - mean_av  
- - std_av  
+ - measurement  
+ - value  
  **subjects** *represents volunteered persons for the experiment*
- **Activities** *representing activities of daily living (ADL) for each subject* 
- **mean_av and std_av** *representing the average value of mean() and std() inherent measurements/features for each activity of each subject*
+ **Activities** *representing activities of daily living (ADL) for each subject*
+ **value** *representing the average value of each measurement/feature for every activity of each subject*
+ **measurement** *representing all features with mean() and std() inherent*
  
- *Each row is an observation of all column variables for each subject, thus, the average value of mean() inherent measurements and std() inherent measurements of a specific type activity for each subject*
+ *Each row is an observation of all column variables for each subject, thus, the mean value of every subject's activity for each measurement*
  
 
 
@@ -234,13 +227,8 @@ Each Subject undertook six activities:
  - 6.laying  
  
 ## Measurements
-Of the 17 variables estimated from the signals, the analysis only required the computation of the average of only the measurements or features with mean() and std() variables inherent in them for each **Activity** and each **Subject**.
+Of the 17 variables estimated from the signals, the analysis only required the computation of the average of only the measurements or features with mean() and std() variables inherent in them for each **Activity** of each **Subject**.
               
-mean_av - representing all mean() inherent measurements for each                  activity and               each subject
-std_av - representing all std() inherent measurements for each activity          and each subject  
-
-## Average
-Average value of mean() or std() inherent measurements for each activity and for each subject 
 
 
 
